@@ -21,9 +21,13 @@ const App: () => Node = () => {
         <MyStack.Screen
           name={'Home'}
           component={Homescreen}
-          options={{title: 'Welcome'}}
+          options={{title: 'Welcome', headerShown: false}}
         />
-        <MyStack.Screen name={'Checkin'} component={CheckIn} />
+        <MyStack.Screen
+          name={'Checkin'}
+          component={CheckIn}
+          options={{headerShown: false}}
+        />
       </MyStack.Navigator>
     </NavigationContainer>
   );
