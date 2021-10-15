@@ -1,16 +1,33 @@
 import React, {useState} from 'react';
 import {
-  Button,
+  Pressable,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
   TextInput,
   useColorScheme,
+  View,
 } from 'react-native';
 import SafeAreaView from 'react-native/Libraries/Components/SafeAreaView/SafeAreaView';
 
 const styles = StyleSheet.create({
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#00368C',
+    borderColor: '#00368C',
+    borderWidth: 1,
+    flex: 1,
+    margin: '3%',
+    padding: '3%',
+    width: '35%',
+  },
+  buttonText: {
+    color: '#FFFFFF',
+  },
+  buttonView: {
+    flexDirection: 'row',
+  },
   container: {
     marginTop: 0,
     backgroundColor: '#5D76CB',
@@ -27,6 +44,9 @@ const styles = StyleSheet.create({
   },
   textinput: {
     backgroundColor: '#FFFFFF',
+    borderRadius: 4,
+    marginTop: '1%',
+    marginHorizontal: '2%',
   },
 });
 
@@ -38,7 +58,7 @@ const CheckIn = ({navigation, route}) => {
     return;
   }
   function handleCreate() {
-    return;
+    navigation.navigate('CreateAccount');
   }
   return (
     <SafeAreaView style={styles.container}>
@@ -60,12 +80,20 @@ const CheckIn = ({navigation, route}) => {
           secureTextEntry={true}
           onChange={event => setPass(event.target.value)}
         />
-        <Button title={'Submit'} onPress={handleSubmit}>
-          Submit
-        </Button>
-        <Button title={'Create Account'} onPress={handleCreate}>
-          Create Account
-        </Button>
+        <View style={styles.buttonView}>
+          <Pressable
+            title={'Submit'}
+            onPress={handleSubmit}
+            style={styles.button}>
+            <Text style={styles.buttonText}>Submit</Text>
+          </Pressable>
+          <Pressable
+            title={'Create Account'}
+            onPress={handleCreate}
+            style={styles.button}>
+            <Text style={styles.buttonText}>Create Account</Text>
+          </Pressable>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

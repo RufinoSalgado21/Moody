@@ -46,6 +46,7 @@ const Homescreen = ({navigation}) => {
           </Section>
           <Button
             title={'Press Me'}
+            style={styles.button}
             onPress={() => navigation.navigate('Checkin', {name: 'Jane'})}
           />
         </View>
@@ -57,6 +58,10 @@ const Homescreen = ({navigation}) => {
 const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
+  },
+  button: {
+    borderWidth: 10,
+    borderColor: '#FFFFFF',
   },
 });
 
