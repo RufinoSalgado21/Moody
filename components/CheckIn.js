@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {
+  Image,
   Pressable,
   ScrollView,
   StatusBar,
@@ -14,8 +15,9 @@ import SafeAreaView from 'react-native/Libraries/Components/SafeAreaView/SafeAre
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: '#00368C',
-    borderColor: '#00368C',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#000000',
+    borderRadius: 7,
     borderWidth: 1,
     flex: 1,
     margin: '3%',
@@ -23,28 +25,44 @@ const styles = StyleSheet.create({
     width: '35%',
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: '#000000',
+    fontSize: 15,
+    fontWeight: 'bold',
   },
   buttonView: {
     flexDirection: 'row',
   },
   container: {
     marginTop: 0,
-    backgroundColor: '#5D76CB',
+    backgroundColor: '#242A36',
     height: '100%',
+  },
+  header: {
+    color: '#FFFFFF',
+    fontSize: 50,
+    fontFamily: 'Nunito-Regular',
+    alignSelf: 'center',
+    marginTop: '20%',
+  },
+  image: {
+    marginHorizontal: '25%',
   },
   scrollview: {
     margin: '0%',
+    height: '50%',
   },
   text: {
     color: '#FFFFFF',
-    fontSize: 40,
+    fontSize: 25,
     alignSelf: 'center',
-    marginTop: '40%',
+    marginTop: '1%',
   },
   textinput: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#242A36',
+    borderBottomWidth: 2,
+    borderBottomColor: 'white',
     borderRadius: 4,
+    color: '#FFFFFF',
     marginTop: '1%',
     marginHorizontal: '2%',
   },
@@ -62,11 +80,12 @@ const CheckIn = ({navigation, route}) => {
   }
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView style={styles.scrollview}>
+        <Text style={styles.header}>Moody</Text>
         <Text style={styles.text}>Log In</Text>
         <TextInput
           placeholder={'Username'}
+          placeholderTextColor={'white'}
           style={styles.textinput}
           maxLength={20}
           value={user}
@@ -74,6 +93,7 @@ const CheckIn = ({navigation, route}) => {
         />
         <TextInput
           placeholder={'Password'}
+          placeholderTextColor={'white'}
           style={styles.textinput}
           maxLength={20}
           value={pass}

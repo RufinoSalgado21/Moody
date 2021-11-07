@@ -1,6 +1,8 @@
 import React from 'react';
 import {
   Button,
+  Image,
+  Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -17,52 +19,76 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Section from './Sections';
-
-/*
- * Homepage component.
- */
-const Homescreen = ({navigation}) => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Button
-            title={'Press Me'}
-            style={styles.button}
-            onPress={() => navigation.navigate('Checkin', {name: 'Jane'})}
-          />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+import logo from '../resources/Free_Sample_By_Wix.png';
 
 const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
   button: {
-    borderWidth: 10,
-    borderColor: '#FFFFFF',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#000000',
+    borderRadius: 7,
+    borderWidth: 2,
+    flex: 1,
+    marginHorizontal: '9%',
+    padding: '0%',
+    width: '80%',
+  },
+  buttonText: {
+    color: '#000000',
+    fontSize: 20,
+    fontFamily: 'Nunito-Regular',
+    fontWeight: 'bold',
+    marginTop: '3%',
+    marginBottom: '5%',
+  },
+  buttonView: {
+    flexDirection: 'row',
+  },
+  container: {
+    marginTop: 0,
+    backgroundColor: '#242A36',
+    height: '100%',
+  },
+  form: {
+    paddingTop: '10%',
+  },
+  navigationBar: {
+    backgroundColor: '#FFFFFF',
+    color: '#000000',
+    paddingVertical: '3%',
+  },
+  scrollview: {
+    margin: '0%',
+  },
+  text: {
+    color: '#FFFFFF',
+    fontSize: 40,
+    alignSelf: 'center',
+    marginTop: '40%',
   },
 });
+
+/*
+ * Homepage component.
+ */
+const Homescreen = ({navigation}) => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollview}>
+        <View style={styles.navigationBar}>
+          <Text></Text>
+        </View>
+        <View style={styles.form}>
+          <Pressable title={'Submit Info'} style={styles.button}>
+            <Text style={styles.buttonText}>Monthly Check In!</Text>
+          </Pressable>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
 export default Homescreen;
